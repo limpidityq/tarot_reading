@@ -1,0 +1,74 @@
+{
+  "Wands": [
+    {
+      "name": "Ace of Wands",
+      "upright": "Inspiration, new opportunities, growth, potential",
+      "reversed": "Delays, lack of direction, distractions"
+    },
+    {
+      "name": "Two of Wands",
+      "upright": "Future planning, progress, decisions, discovery",
+      "reversed": "Fear of change, playing it safe, lack of planning"
+    },
+    {
+      "name": "Three of Wands",
+      "upright": "Expansion, foresight, overseas opportunities",
+      "reversed": "Delays, obstacles to long-term goals, frustration"
+    },
+    {
+      "name": "Four of Wands",
+      "upright": "Celebration, harmony, marriage, community, home",
+      "reversed": "Personal celebration, inner harmony, conflict with others"
+    },
+    {
+      "name": "Five of Wands",
+      "upright": "Conflict, disagreements, competition, tension, diversity",
+      "reversed": "Avoiding conflict, respecting differences, resolving disputes"
+    },
+    {
+      "name": "Six of Wands",
+      "upright": "Success, public recognition, progress, self-confidence",
+      "reversed": "Private achievement, personal doubt, lack of recognition"
+    },
+    {
+      "name": "Seven of Wands",
+      "upright": "Challenge, competition, protection, perseverance",
+      "reversed": "Exhaustion, giving up, overwhelmed by opposition"
+    },
+    {
+      "name": "Eight of Wands",
+      "upright": "Movement, fast-paced change, action, alignment, air travel",
+      "reversed": "Delays, frustration, resisting change, internal alignment"
+    },
+    {
+      "name": "Nine of Wands",
+      "upright": "Resilience, courage, persistence, test of faith, boundaries",
+      "reversed": "Inner resources, struggling, overwhelming odds, defensive"
+    },
+    {
+      "name": "Ten of Wands",
+      "upright": "Burden, extra responsibility, hard work, completion",
+      "reversed": "Doing it all, carrying the weight, delegation, release"
+    },
+    {
+      "name": "Page of Wands",
+      "upright": "Inspiration, ideas, discovery, limitless potential, free spirit",
+      "reversed": "Self-limiting beliefs, procrastination, newly formed ideas"
+    },
+    {
+      "name": "Knight of Wands",
+      "upright": "Energy, passion, inspired action, adventure, impulsiveness",
+      "reversed": "Passion project, haste, scattered energy, delays, frustration"
+    },
+    {
+      "name": "Queen of Wands",
+      "upright": "Courage, confidence, independence, social butterfly, determination",
+      "reversed": "Self-respect, introversion, self-confidence, re-establishment"
+    },
+    {
+      "name": "King of Wands",
+      "upright": "Natural-born leader, vision, entrepreneur, honor",
+      "reversed": "Impulsiveness, haste, ruthless, high expectations"
+    }
+  ]
+}

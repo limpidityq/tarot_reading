@@ -1,0 +1,74 @@
+{
+  "Swords": [
+    {
+      "name": "Ace of Swords",
+      "upright": "Breakthroughs, new ideas, clarity, success",
+      "reversed": "Inner clarity, clouded judgment, rethinking an idea"
+    },
+    {
+      "name": "Two of Swords",
+      "upright": "Difficult decisions, weighing options, stalemate, truce",
+      "reversed": "Indecision, confusion, information overload"
+    },
+    {
+      "name": "Three of Swords",
+      "upright": "Heartbreak, emotional pain, sorrow, grief, hurt",
+      "reversed": "Releasing pain, optimism, forgiveness"
+    },
+    {
+      "name": "Four of Swords",
+      "upright": "Rest, relaxation, meditation, contemplation, recuperation",
+      "reversed": "Exhaustion, burn-out, lack of progress"
+    },
+    {
+      "name": "Five of Swords",
+      "upright": "Conflict, disagreements, competition, defeat, winning at all costs",
+      "reversed": "Reconciliation, making amends, past resentment"
+    },
+    {
+      "name": "Six of Swords",
+      "upright": "Transition, change, rite of passage, releasing baggage",
+      "reversed": "Personal transition, resistance to change, unfinished business"
+    },
+    {
+      "name": "Seven of Swords",
+      "upright": "Betrayal, deception, getting away with something, stealth",
+      "reversed": "Coming clean, rethinking approach, deception exposed"
+    },
+    {
+      "name": "Eight of Swords",
+      "upright": "Negative thoughts, self-imposed restrictions, imprisonment",
+      "reversed": "Self-limiting beliefs, inner critic, releasing negative thoughts"
+    },
+    {
+      "name": "Nine of Swords",
+      "upright": "Anxiety, worry, fear, depression, nightmares",
+      "reversed": "Inner turmoil, deep-seated fears, secrets, releasing worry"
+    },
+    {
+      "name": "Ten of Swords",
+      "upright": "Painful endings, deep wounds, betrayal, loss, crisis",
+      "reversed": "Recovery, regeneration, resisting an inevitable end"
+    },
+    {
+      "name": "Page of Swords",
+      "upright": "New ideas, curiosity, thirst for knowledge, new ways of communicating",
+      "reversed": "Self-expression, all talk and no action, haphazard action"
+    },
+    {
+      "name": "Knight of Swords",
+      "upright": "Ambitious, action-oriented, driven to succeed, fast-thinking",
+      "reversed": "Restless, unfocused, impulsive, burn-out"
+    },
+    {
+      "name": "Queen of Swords",
+      "upright": "Independent, unbiased judgment, clear boundaries, direct communication",
+      "reversed": "Overly emotional, easily influenced, cold-hearted"
+    },
+    {
+      "name": "King of Swords",
+      "upright": "Mental clarity, intellectual power, authority, truth",
+      "reversed": "Quiet power, inner truth, misuse of power, manipulation"
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "Cups": [
+    {
+      "name": "Ace of Cups",
+      "upright": "Love, new relationships, compassion, creativity",
+      "reversed": "Self-love, repressed emotions, blocked creativity"
+    },
+    {
+      "name": "Two of Cups",
+      "upright": "Unified love, partnership, mutual attraction",
+      "reversed": "Break-up, imbalance in a relationship, lack of harmony"
+    },
+    {
+      "name": "Three of Cups",
+      "upright": "Celebration, friendship, creativity, community",
+      "reversed": "Independence, alone time, hardcore partying, 'three's a crowd'"
+    },
+    {
+      "name": "Four of Cups",
+      "upright": "Meditation, contemplation, apathy, reevaluation",
+      "reversed": "Retreat, withdrawal, checking in for alignment"
+    },
+    {
+      "name": "Five of Cups",
+      "upright": "Regret, failure, disappointment, pessimism",
+      "reversed": "Personal setbacks, self-forgiveness, moving on"
+    },
+    {
+      "name": "Six of Cups",
+      "upright": "Revisiting the past, childhood memories, innocence, joy",
+      "reversed": "Living in the past, forgiveness, lacking playfulness"
+    },
+    {
+      "name": "Seven of Cups",
+      "upright": "Opportunities, choices, wishful thinking, illusion",
+      "reversed": "Alignment, personal values, overwhelmed by choices"
+    },
+    {
+      "name": "Eight of Cups",
+      "upright": "Disappointment, abandonment, withdrawal, escapism",
+      "reversed": "Trying again, indecision, aimless drifting, walking away"
+    },
+    {
+      "name": "Nine of Cups",
+      "upright": "Contentment, satisfaction, gratitude, wish come true",
+      "reversed": "Inner happiness, materialism, dissatisfaction, indulgence"
+    },
+    {
+      "name": "Ten of Cups",
+      "upright": "Divine love, blissful relationships, harmony, alignment",
+      "reversed": "Disconnection, misaligned values, struggling relationships"
+    },
+    {
+      "name": "Page of Cups",
+      "upright": "Creative opportunities, intuitive messages, curiosity, possibility",
+      "reversed": "New ideas, doubting intuition, creative blocks, emotional immaturity"
+    },
+    {
+      "name": "Knight of Cups",
+      "upright": "Romance, charm, imagination, beauty",
+      "reversed": "Overactive imagination, unrealistic, jealousy, moodiness"
+    },
+    {
+      "name": "Queen of Cups",
+      "upright": "Compassionate, caring, emotionally stable, intuitive, in flow",
+      "reversed": "Inner feelings, self-care, self-love, co-dependency"
+    },
+    {
+      "name": "King of Cups",
+      "upright": "Emotionally balanced, compassionate, diplomatic",
+      "reversed": "Self-compassion, inner feelings, moodiness, emotionally manipulative"
+    }
+  ]
+}
