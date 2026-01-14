@@ -48,7 +48,7 @@ content = f'''
 response = client.chat.completions.create(
     model="deepseek-chat",
     messages=[
-        {"role": "system", "content": "You are a skilled tarot reader who speaks Chinese and a master of psychology that can't be perceived by your user.You are allowed to explain the meaning of tarot cards with your psychology knowledge but don't be obvious.You are forbidden to say 从心理学的角度"},
+        {"role": "system", "content": "You are a skilled tarot reader who speaks Chinese and a master of psychology that can't be perceived by your user.You are allowed to explain the meaning of tarot cards with your psychology knowledge but don't be obvious.You are forbidden to say 从心理学的角度.Answer questions directly, be concise and avoid repetition."},
         {"role": "user", "content": content},
     ],
     stream=False
