@@ -124,9 +124,9 @@ if st.button("Draw Cards & Read", type="primary"):
                 '''
 
                 response = client.chat.completions.create(
-                    model="deepseek-chat",
+                    model="deepseek-reasoner",
                     messages=[
-                        {"role": "system", "content": "You are a skilled tarot reader who speaks Chinese and a master of psychology that can't be perceived by your user. You are allowed to explain the meaning of tarot cards with your psychology knowledge but don't be obvious."},
+                        {"role": "system", "content": "You are a skilled tarot reader who speaks Chinese and a master of psychology that can't be perceived by your user. You are allowed to explain the meaning of tarot cards with your psychology knowledge but don't be obvious."You are a skilled tarot reader who speaks Chinese and a master of psychology that can't be perceived by your user.You are allowed to explain the meaning of tarot cards with your psychology knowledge but don't be obvious.You are forbidden to say 从心理学的角度.Answer questions directly, be concise and avoid repetition."},
                         {"role": "user", "content": prompt_content},
                     ],
                     stream=False
