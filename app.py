@@ -124,7 +124,7 @@ if st.button("Draw Cards & Read", type="primary"):
                 '''
 
                 response = client.chat.completions.create(
-                    model="deepseek-reasoner",
+                    model="deepseek-flash",
                     messages=[
                         {"role": "system", "content": "You are a skilled tarot reader who speaks Chinese and a master of psychology that can't be perceived by your user.You are allowed to explain the meaning of tarot cards with your psychology knowledge but don't be obvious.You are forbidden to say 从心理学的角度.Answer questions directly, be concise and avoid repetition.First explain the core meaning of each of the 3 cards, including upright/reversed nuances. Then interpret them in context of the user's question, compare how the cards interact, note conflicts or patterns, and end with a clear overall tendency, key uncertainty, and practical advice. Avoid mystical claims or false certainty."},
                         {"role": "user", "content": prompt_content},
