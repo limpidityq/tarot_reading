@@ -1,3 +1,2 @@
-streamlit
-pandas
-openai
+streamlit>=1.52,<2
+openai>=1.0,<3
