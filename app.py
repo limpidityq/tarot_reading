@@ -1,5 +1,6 @@
 """Tarot Reader: keep the original Streamlit interface, add card images,
 Waite's original card meanings, and private browser history.
+Image assets are fetched on the server and rendered with native st.image.
 
 Requires the tarot_core.py and history.js already in the GitHub repository.
 """
@@ -8,7 +9,13 @@ from __future__ import annotations
 
 import html
 import json
+import re
 import uuid
+from io import BytesIO
+from urllib.parse import urlsplit
+from urllib.request import Request, urlopen
+
+from PIL import Image, ImageOps
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -37,15 +44,9 @@ st.markdown("""
         align-items: center;
         box-shadow: 0 4px 6px rgba(0,0,0,0.3);
     }
-    .card-image {
-        width: 100%;
-        max-width: 180px;
-        aspect-ratio: 0.58;
-        object-fit: contain;
-        border-radius: 5px;
-        background: #222;
-    }
-    .card-image.reversed { transform: rotate(180deg); }
+    /* Keep the original dark card styling; render images with st.image. */
+    div[data-testid="stImage"] { display: flex; justify-content: center; }
+    div[data-testid="stImage"] img { border-radius: 5px; }
     .card-name { font-size: 18px; font-weight: bold; color: #FFD700; margin-top: 10px; }
     .card-pos { font-size: 14px; color: #AAAAAA; font-style: italic; }
     .card-name-cn { font-size: 13px; color: #BBBBBB; }
@@ -63,15 +64,72 @@ def load_tarot_data():
     return load_cards()
 
 
+@st.cache_data(show_spinner=False, ttl=7 * 86400, max_entries=100)
+def fetch_card_image(filename: str) -> bytes:
+    """Download once on the Streamlit server, with a second source as backup.
+
+    Browser no longer needs to access an external image host itself.
+    No file upload or extra pictures directory is required.
+    """
+    if not re.fullmatch(r"(?:ar|cu|wa|sw|pe)\d{2}\.jpg", filename):
+        raise ValueError("Invalid tarot image filename")
+
+    local_file = BASE_DIR / "assets" / "cards" / filename
+    if local_file.is_file():
+        candidates = [("local", local_file.read_bytes())]
+    else:
+        candidates = []
+
+    sources = (
+        f"https://raw.githubusercontent.com/sixseeds/tarot-api/main/cards/{filename}",
+        f"https://petaloverflow.github.io/tarot-api/cards/{filename}",
+    )
+    errors = []
+    # Try a bundled image first, then the public source, then the fallback host.
+    for source, raw in [*candidates, *((url, None) for url in sources)]:
+        try:
+            if raw is None:
+                req = Request(source, headers={"User-Agent": "TarotReader/1.0"})
+                with urlopen(req, timeout=12) as response:
+                    raw = response.read(8 * 1024 * 1024 + 1)
+            if len(raw) > 8 * 1024 * 1024:
+                raise ValueError("Card image is too large")
+            with Image.open(BytesIO(raw)) as source_image:
+                if source_image.width > 4000 or source_image.height > 6000:
+                    raise ValueError("Card image dimensions are too large")
+                picture = ImageOps.exif_transpose(source_image).convert("RGB")
+                picture.thumbnail((420, 720), Image.Resampling.LANCZOS)
+                out = BytesIO()
+                picture.save(out, format="JPEG", quality=86, optimize=True)
+                return out.getvalue()
+        except (OSError, ValueError) as exc:
+            errors.append(f"{source}: {type(exc).__name__}: {exc}")
+    raise RuntimeError("Cannot download this card image. " + " | ".join(errors))
+
+
+@st.cache_data(show_spinner=False, ttl=7 * 86400, max_entries=150)
+def display_image(card_image_url: str, orientation: str) -> bytes:
+    """Return image bytes for Streamlit, physically rotated when reversed."""
+    filename = urlsplit(card_image_url).path.rsplit("/", 1)[-1]
+    content = fetch_card_image(filename)
+    if orientation != "逆位":
+        return content
+    with Image.open(BytesIO(content)) as picture:
+        out = BytesIO()
+        picture.rotate(180).save(out, format="JPEG", quality=86, optimize=True)
+        return out.getvalue()
+
+
 def show_card(card: dict, orientation: str) -> None:
-    image = html.escape(card["image"], quote=True)
     name = html.escape(card["name"])
     name_cn = html.escape(card["name_zh"])
     direction = "Upright" if orientation == "正位" else "Reversed"
-    css_class = "reversed" if orientation == "逆位" else ""
+    try:
+        st.image(display_image(card["image"], orientation), width=180, alt=card["name"])
+    except Exception:
+        st.warning(f"{card['name_zh']} 的牌面暂时无法加载；牌义和抽牌不受影响。")
     st.markdown(f"""
       <div class="card-box">
-        <img src="{image}" class="card-image {css_class}" alt="{name}" loading="eager">
         <div class="card-name">{name}</div>
         <div class="card-name-cn">{name_cn}</div>
         <div class="card-pos">{direction}</div>
@@ -225,7 +283,10 @@ with st.expander("📚 All 78 cards · 韦特原始牌义查询"):
     labels = {f"{card['name']} · {card['name_zh']}": card for card in data_tarot}
     selected_label = st.selectbox("Choose a card", list(labels.keys()), key="card_lookup")
     card = labels[selected_label]
-    st.image(card["image"], width=135)
+    try:
+        st.image(display_image(card["image"], "正位"), width=135, alt=card["name"])
+    except Exception:
+        st.warning("这张牌的图片暂时无法加载；下面的原著牌义仍可阅读。")
     st.markdown("**Upright (Waite original)**")
     st.write(card["waite_upright"])
     st.markdown("**Reversed (Waite original)**")
