@@ -1,6 +1,6 @@
-# 韦特塔罗 · Tarot Reading（重构版）
+# 韦特塔罗 · Tarot Reading
 
-基于原有 Streamlit + DeepSeek 的个人塔罗工具，新增：
+基于原有 Streamlit + DeepSeek 的个人塔罗工具，可以：
 
 1. **78 张 Rider–Waite–Smith 牌面**：1／2／3 张抽牌，抽牌不重复；逆位牌面倒转。
 2. **Waite 原著释义**：每张牌均有正、逆位的英文原文，并可查看小阿卡纳附加释义。来源是 A. E. Waite 的 *The Pictorial Key to the Tarot*（1911），避免混用现代牌义。没有统一且持续更新的“韦特官方解读”版本；这里采用作者本人发表的历史原文。
